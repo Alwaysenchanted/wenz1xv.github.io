@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>30daysJS 15 JS调用与建立Local Storage | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第15天的内容是类似一个todolist把内容存到localStorage里防止每次打开就没有之前的内容js脚本内嵌在html里，css写在另一个文件里">
+<meta name="keywords" content="30daysJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30daysJS 15 JS调用与建立Local Storage">
+<meta property="og:url" content="http://yoursite.com/child/2019/04/08/30days15/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="第15天的内容是类似一个todolist把内容存到localStorage里防止每次打开就没有之前的内容js脚本内嵌在html里，css写在另一个文件里">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T07:40:11.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="30daysJS 15 JS调用与建立Local Storage">
+<meta name="twitter:description" content="第15天的内容是类似一个todolist把内容存到localStorage里防止每次打开就没有之前的内容js脚本内嵌在html里，css写在另一个文件里">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/child"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-30days15" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/30days15/" class="article-date">
+  <time datetime="2019-04-08T07:38:07.852Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      30daysJS 15 JS调用与建立Local Storage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第15天的内容是类似一个todolist<br>把内容存到localStorage里防止每次打开就没有之前的内容<br>js脚本内嵌在html里，css写在另一个文件里<br><a id="more"></a></p>
+<p>##HTML</p>
+<blockquote>
+<p>写了一个logo放在上面<br>下面一个div里放着列表、输入框和提交按钮<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;LocalStorage&lt;/title&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">   &lt;!-- 用了张本地照片作为logo --&gt;</span><br><span class="line">   &lt;img src=&quot;/15 - LocalStorage/logo.jpg&quot; alt=&quot;&quot; class=&quot;logo&quot;&gt; </span><br><span class="line">  &lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">    &lt;h2&gt;To Do It&lt;/h2&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;ul class=&quot;plates&quot;&gt;</span><br><span class="line">      &lt;li&gt;Loading...&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;form class=&quot;add-items&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;text&quot; name=&quot;item&quot; placeholder=&quot;Item Name&quot; required&gt;</span><br><span class="line">      &lt;input type=&quot;submit&quot; value=&quot; -Add Item- &quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;p class=&quot;clear&quot;&gt;clear all&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这个不是重点</p>
+<p>##JavaScript</p>
+<blockquote>
+<p>如果不考虑list内容需不需要checked，只需要一个列表的话<br>只要addItem和populateList函数就够了，然后加个监听<br>toggleDone是为了刷新是否checked，还加了个clear的监听<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">//选取页面内容</span><br><span class="line">  const addItems = document.querySelector(&apos;.add-items&apos;);</span><br><span class="line">  const itemsList = document.querySelector(&apos;.plates&apos;);</span><br><span class="line">  const clear_ = document.querySelector(&apos;.clear&apos;);</span><br><span class="line">//从缓存拿数组数据或新建数组</span><br><span class="line">  var items = JSON.parse(localStorage.getItem(&apos;items&apos;)) ||[];</span><br><span class="line">//addItem函数用于将输入框内容添加到数组里</span><br><span class="line">  function addItem(e)&#123;</span><br><span class="line">    //这个preventDefault()是为了防止自动刷新</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    const text = this.querySelector(&apos;[name=item]&apos;).value;</span><br><span class="line">    const item = &#123;text:text , checked :false&#125;;</span><br><span class="line">    items.push(item);</span><br><span class="line">    this.reset();</span><br><span class="line">    populateList(items,itemsList);</span><br><span class="line">    localStorage.setItem(&apos;items&apos;,JSON.stringify(items));</span><br><span class="line">  &#125;</span><br><span class="line">//populateList用于添加内容到html里</span><br><span class="line">  function populateList(plates = [],plateslist)&#123;</span><br><span class="line">    plateslist.innerHTML = plates.map((plate,i) =&gt;&#123;</span><br><span class="line">      return `</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">          &lt;input type = &apos;checkbox&apos; data-index=$&#123;i&#125; id = &quot;item$&#123;i&#125;&quot; $&#123;plate.checked ? &apos;checked&apos; : &apos;&apos;&#125; &gt;</span><br><span class="line">          &lt;label for=&quot;item$&#123;i&#125;&quot;&gt; $&#123;plate.text&#125; &lt;/label&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      `;</span><br><span class="line">    &#125;).join(&apos;&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">//toggleDone是用于刷新缓存里的item是否完成选项</span><br><span class="line">  function toggleDone(e)&#123;</span><br><span class="line">	  if (!e.target.matches(&apos;input&apos;)) return;</span><br><span class="line">	  items[e.target.dataset.index].checked = !items[e.target.dataset.index].checked;</span><br><span class="line">    localStorage.setItem(&apos;items&apos;, JSON.stringify(items));</span><br><span class="line">  &#125;</span><br><span class="line">//添加监听</span><br><span class="line">  addItems.addEventListener(&apos;submit&apos;,addItem);</span><br><span class="line">  itemsList.addEventListener(&apos;click&apos;,toggleDone);</span><br><span class="line">  clear_.addEventListener(&apos;click&apos;,()=&gt;&#123;</span><br><span class="line">    items = [];</span><br><span class="line">  	populateList(items, itemsList);</span><br><span class="line">   	localStorage.setItem(&apos;items&apos;, JSON.stringify(items));</span><br><span class="line">  &#125;);</span><br><span class="line">//第一次运行刷新items</span><br><span class="line">  populateList(items,itemsList);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>####用到的函数</p>
+<ul>
+<li>Array.map()  返回一个新数组</li>
+<li>Array.push()  将内容添加到数组里</li>
+<li>JSON 一个数据储存与读取库，可以按一定的规则存储数据<ul>
+<li>JSON.Stringfy() 将数组转化为JSON格式String</li>
+<li>JSON.parse() 还原JSON字符串为数组或字典</li>
+</ul>
+</li>
+<li>preventDefault() 阻止自带函数</li>
+</ul>
+<p>##讨论<br>实现目标效果不是很难，或者说比我想象的简单一点，但用localStorage总觉得有点问题。<br>如果是服务端的话，那应该会在服务器哪里存着，然后根据http请求的头文件找对应文件。</p>
+<p>css部分觉得难搞多了，给input按钮加了个:hover和:actice，果然使用体验好多了，没有反馈的交互按键真是不合理的东西。</p>
+<blockquote>
+<p>CSS源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  background:url(&apos;/15\ -\ LocalStorage/photo-1551300444-2a7ea9b69f2e.jpg&apos;) center no-repeat;</span><br><span class="line">  background-size:cover;</span><br><span class="line">  /* min-height:100vh;*/</span><br><span class="line">  display:flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  /* align-items: center; */</span><br><span class="line">  text-align: center;</span><br><span class="line">  font-family: Futura,&quot;Trebuchet MS&quot;,Arial,sans-serif</span><br><span class="line">&#125;</span><br><span class="line">*, *:before, *:after &#123;box-sizing: inherit; &#125;</span><br><span class="line">img &#123;</span><br><span class="line">  fill:white;</span><br><span class="line">  background: rgba(255,255,255,0.4);</span><br><span class="line">  padding: 20px;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  width:150px;</span><br><span class="line">  margin-bottom: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.wrapper &#123;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  max-width: 350px;</span><br><span class="line">  background: rgba(255,255,255,0.95);</span><br><span class="line">  box-shadow: 0 0 0 10px rgba(0,0,0,0.1);</span><br><span class="line">  padding-bottom: 5px;</span><br><span class="line">&#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">  margin: 0;</span><br><span class="line">  font-weight: 200;</span><br><span class="line">&#125;</span><br><span class="line">.plates &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  text-align: left;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line">.plates li &#123;</span><br><span class="line">  border-bottom: 1px solid rgba(0,0,0,0.2);</span><br><span class="line">  padding: 10px 0;</span><br><span class="line">  font-weight: 100;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.plates label &#123;</span><br><span class="line">  flex:1;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.plates input &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.plates input + label:before &#123;</span><br><span class="line">  content: &apos;⬜️&apos;;</span><br><span class="line">  margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.plates input:checked + label:before &#123;</span><br><span class="line">  content: &apos;☑️&apos;;</span><br><span class="line">&#125;</span><br><span class="line">.add-items &#123;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.add-items input &#123;</span><br><span class="line">  padding:8px;</span><br><span class="line">  padding-left: 12px;</span><br><span class="line">  padding-right: 12px;</span><br><span class="line">  outline:0;</span><br><span class="line">  border:1px solid rgba(0,0,0,0.1);</span><br><span class="line">  margin-left: 10px;</span><br><span class="line">  border-radius: 20px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);</span><br><span class="line">  text-shadow: 1px 1px 2px rgba(0,0,0,.2); </span><br><span class="line">&#125;</span><br><span class="line">.add-items input:hover&#123;</span><br><span class="line">  background-color: #81ecec;</span><br><span class="line">&#125;</span><br><span class="line">.add-items input:active&#123;</span><br><span class="line">  background-color: #0984e3;</span><br><span class="line">&#125;</span><br><span class="line">.add-items input[type=text] &#123;</span><br><span class="line">  border-radius: 12px;</span><br><span class="line">  cursor: text;</span><br><span class="line">&#125;</span><br><span class="line">.add-items input[type=text]:hover &#123;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.clear&#123;</span><br><span class="line">  margin-top: 10px;</span><br><span class="line">  margin-bottom: 10px;</span><br><span class="line">  width: 60px;</span><br><span class="line">  color: #b2bec3;</span><br><span class="line">  margin-left: auto;</span><br><span class="line">  margin-right: auto;</span><br><span class="line">&#125;</span><br><span class="line">.clear:hover&#123;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.clear:active&#123;</span><br><span class="line">  color: #0984e3;</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">  margin-top: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/30days15/" data-id="cju8b1hrp000psgrhis4hk883" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/08/30days16/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          30daysJS 16 JS监听鼠标并改变文字阴影
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/08/python_learning_guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python学习指南</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/30daysJS/" style="font-size: 20px;">30daysJS</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python3/" style="font-size: 20px;">python3</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/Andhadhun/">Andhadhun.调音师</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/30days16/">30daysJS 16 JS监听鼠标并改变文字阴影</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/30days15/">30daysJS 15 JS调用与建立Local Storage</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python_learning_guide/">Python学习指南</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python_get_taobao_data/">python3爬取淘宝搜索</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

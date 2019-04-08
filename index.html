@@ -65,6 +65,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysql1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/mysql1/" class="article-date">
+  <time datetime="2019-04-08T03:19:53.441Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/08/mysql1/">mysql8安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为了更好的学习JS等，开始接触数据库。<br>大致看了下，对MySQL这个名字，很有好感，选定它为我的第一个数据库。<br>然而安装就安装了我两天，可恶。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/08/mysql1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/mysql1/" data-id="cju7sfa9a00056wrhw1x3ppzi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-makeblog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/08/makeblog/" class="article-date">
@@ -87,21 +130,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>因为已经装了git和node，SSH key也已经部署了，直接安装hexo就好了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）<br>找个文件夹，稳健起见就不用中文名路径了，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
-<p>修改_config.yml，最后一项改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo: https://github.com/wenz1xv/wenz1xv.github.io.git  #我的github项目地址</span><br><span class="line">     branch: master</span><br></pre></td></tr></table></figure></p>
-<p>然后试着部署：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #这命令是为了解决hexo新版本的部署问题</span><br><span class="line"></span><br><span class="line">npm g #生成页面</span><br><span class="line">npm d #同步页面</span><br></pre></td></tr></table></figure></p>
-<p>然后就能看到页面，虽然中间报错了两次，但是不影响<br>然后修改主题和一些其他的，修改 _config.yml文件就行了<br>主题在heroku的git仓库有</p>
-<p>发现除了根目录的_config.yml可以调整<br>在theme文件夹内也有一个_config.yml用于调整模板</p>
-<p>参考资料<br><a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">https://www.jianshu.com/p/465830080ea9</a></p>
-
+        <p>搜了一下如何搭建网站，发现用github与hexo免费搭博客，不搭白不搭！<br>白嫖就完事了!</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/08/makeblog/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/makeblog/" data-id="cju7s8ij30001ukrhzv4xst5i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/makeblog/" data-id="cju7scp6700016wrh474j2eef" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+
     </footer>
   </div>
   
@@ -131,14 +173,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="记录一些命令"><a href="#记录一些命令" class="headerlink" title="记录一些命令"></a>记录一些命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment">#完整命令为hexo generate，用于生成静态文件</span></span><br><span class="line">$ hexo s <span class="comment">#完整命令为hexo server，用于启动服务器，主要用来本地预览</span></span><br><span class="line">$ hexo d <span class="comment">#完整命令为hexo deploy，用于将本地文件发布到github上</span></span><br><span class="line">$ hexo n <span class="comment">#完整命令为hexo new，用于新建一篇文章</span></span><br></pre></td></tr></table></figure>
-
+        <p>记录一些在写博客时用的命令</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/08/hello-world/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/hello-world/" data-id="cju7s8iij0000ukrhebq5b03j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/hello-world/" data-id="cju7scp5t00006wrh7j044r26" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+
     </footer>
   </div>
   
@@ -156,9 +204,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -175,6 +237,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/08/mysql1/">mysql8安装</a>
+          </li>
         
           <li>
             <a href="/2019/04/08/makeblog/">用hexo与github搭建博客</a>

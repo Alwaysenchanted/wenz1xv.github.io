@@ -3,21 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Hexo</title>
-  <meta name="author" content="John Doe">
+  <title>wenz_Blog</title>
+  <meta name="author" content="wenz">
+  
+  <meta name="description" content="This is the blog made by wenz">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="Hexo">
+  <meta property="og:site_name" content="wenz_Blog">
 
   
     <meta property="og:image" content>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="wenz_Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -27,7 +29,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hexo</a></h1>
+  <h1><a href="/">wenz_Blog</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -44,6 +46,46 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-04-08T01:34:43.173Z"><a href="/2019/04/08/makeblog/">2019-04-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/04/08/makeblog/">用hexo与github搭建博客</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>第一篇资料<br><a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">https://www.jianshu.com/p/465830080ea9</a></p>
+<blockquote>
+<p>因为已经装了git和node，SSH key应该也已经部署了，直接安装hexo就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）<br>找个文件夹，稳健起见就不用中文名路径了，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>修改_config.yml，最后一项改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo: https://github.com/wenz1xv/wenz1xv.github.io.git  #我的github项目地址</span><br><span class="line">     branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后试着部署：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #这命令是为了解决hexo新版本的部署问题</span><br><span class="line"></span><br><span class="line">npm g #生成页面</span><br><span class="line">npm d #同步页面</span><br></pre></td></tr></table></figure></p>
+<p>然后就能看到页面，虽然中间报错了两次，但是不影响<br>然后修改主题和一些其他的，修改 _config.yml文件就行了<br>主题在heroku的git仓库有</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -95,7 +137,7 @@
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:yoursite.com">
+    <input type="hidden" name="q" value="site:yoursite.com/child">
   </form>
 </div>
 
@@ -107,7 +149,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2019 John Doe
+  &copy; 2019 wenz
   
 </div>
 <div class="clearfix"></div></footer>

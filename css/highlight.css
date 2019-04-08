@@ -1,142 +1,136 @@
-pre,
-.highlight {
+/*https://github.com/chriskempson/tomorrow-theme*/
+.post-container pre,
+.post-container .highlight {
   overflow: auto;
   margin: 20px 0;
   padding: 15px;
-  font-size: $code-font-size;
+  font-size: 13px;
   color: #4d4d4c;
   background: #f7f7f7;
   line-height: $line-height-code-block;
 }
-pre,
-code {
+/*pre, code { 
   font-family: $code-font-family;
-}
-code {
+}*/
+/*
+.post-container code {
   padding: 2px 4px;
-  word-wrap: break-all;
-  color: #4d4d4c;
-  background: #f7f7f7;
+  word-break: break-all;
+  color: $code-foreground;
+  background: $code-background;
   border-radius: $code-border-radius;
-  font-size: $code-font-size;
-}
-pre code {
+  font-size $code-font-size;
+}*/
+.post-container pre code {
   padding: 0;
   color: #4d4d4c;
   background: none;
   text-shadow: none;
 }
-.highlight pre {
+.post-container .highlight pre {
   border: none;
   margin: 0;
   padding: 1px;
 }
-.highlight table {
+.post-container .highlight table {
   margin: 0;
   width: auto;
   border: none;
 }
-.highlight td {
-  border: none;
+.post-container .highlight td {
+  border: none !important;
   padding: 0;
 }
-.highlight figcaption {
+.post-container .highlight figcaption {
+  zoom: 1;
   font-size: 1em;
   color: #4d4d4c;
   line-height: 1em;
   margin-bottom: 1em;
 }
-.highlight figcaption a {
+.post-container .highlight figcaption:before,
+.post-container .highlight figcaption:after {
+  content: "";
+  display: table;
+}
+.post-container .highlight figcaption:after {
+  clear: both;
+}
+.post-container .highlight figcaption a {
   float: right;
   color: #4d4d4c;
 }
-.highlight figcaption a:hover {
+.post-container .highlight figcaption a:hover {
   border-bottom-color: #4d4d4c;
 }
-.highlight .gutter pre {
-  color: $grey-dim;
+.post-container .highlight .gutter pre {
+  color: #666;
   text-align: right;
   padding-right: 20px;
 }
-.highlight .line {
+.post-container .highlight .line {
   height: 20px;
 }
-.gutter {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.gist table {
+.post-container .gist table {
   width: auto;
 }
-.gist table td {
+.post-container .gist table td {
   border: none;
 }
-pre .deletion {
-  background: #fdd;
-}
-pre .addition {
-  background: #dfd;
-}
-pre .meta {
-  color: #8959a8;
-}
-pre .comment {
+.post-container pre .comment {
   color: #8e908c;
 }
-pre .variable,
-pre .attribute,
-pre .tag,
-pre .regexp,
-pre .ruby .constant,
-pre .xml .tag .title,
-pre .xml .pi,
-pre .xml .doctype,
-pre .html .doctype,
-pre .css .id,
-pre .css .class,
-pre .css .pseudo {
+.post-container pre .variable,
+.post-container pre .attribute,
+.post-container pre .tag,
+.post-container pre .regexp,
+.post-container pre .ruby .constant,
+.post-container pre .xml .tag .title,
+.post-container pre .xml .pi,
+.post-container pre .xml .doctype,
+.post-container pre .html .doctype,
+.post-container pre .css .id,
+.post-container pre .css .class,
+.post-container pre .css .pseudo {
   color: #c82829;
 }
-pre .number,
-pre .preprocessor,
-pre .built_in,
-pre .literal,
-pre .params,
-pre .constant,
-pre .command,
-pre .builtin-name {
+.post-container pre .number,
+.post-container pre .preprocessor,
+.post-container pre .built_in,
+.post-container pre .literal,
+.post-container pre .params,
+.post-container pre .constant,
+.post-container pre .command {
   color: #f5871f;
 }
-pre .ruby .class .title,
-pre .css .rules .attribute,
-pre .string,
-pre .value,
-pre .inheritance,
-pre .header,
-pre .ruby .symbol,
-pre .xml .cdata,
-pre .special,
-pre .number,
-pre .formula {
+.post-container pre .ruby .class .title,
+.post-container pre .css .rules .attribute,
+.post-container pre .string,
+.post-container pre .value,
+.post-container pre .inheritance,
+.post-container pre .header,
+.post-container pre .ruby .symbol,
+.post-container pre .xml .cdata,
+.post-container pre .special,
+.post-container pre .number,
+.post-container pre .formula {
   color: #718c00;
 }
-pre .title,
-pre .css .hexcolor {
+.post-container pre .title,
+.post-container pre .css .hexcolor {
   color: #3e999f;
 }
-pre .function,
-pre .python .decorator,
-pre .python .title,
-pre .ruby .function .title,
-pre .ruby .title .keyword,
-pre .perl .sub,
-pre .javascript .title,
-pre .coffeescript .title {
+.post-container pre .function,
+.post-container pre .python .decorator,
+.post-container pre .python .title,
+.post-container pre .ruby .function .title,
+.post-container pre .ruby .title .keyword,
+.post-container pre .perl .sub,
+.post-container pre .javascript .title,
+.post-container pre .coffeescript .title {
   color: #4271ae;
 }
-pre .keyword,
-pre .javascript .function {
+.post-container pre .keyword,
+.post-container pre .javascript .function {
   color: #8959a8;
 }

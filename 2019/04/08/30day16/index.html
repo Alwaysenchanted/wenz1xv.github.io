@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>30daysJS 16 JS监听鼠标并改变文字阴影 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这天主要是为了实现根据鼠标的移动使阴影的位置也能动好像没什么特殊的，主要是shadow位置的算法。但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？">
+<meta name="keywords" content="30daysJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30daysJS 16 JS监听鼠标并改变文字阴影">
+<meta property="og:url" content="http://yoursite.com/child/2019/04/08/30day16/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="这天主要是为了实现根据鼠标的移动使阴影的位置也能动好像没什么特殊的，主要是shadow位置的算法。但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T07:42:02.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="30daysJS 16 JS监听鼠标并改变文字阴影">
+<meta name="twitter:description" content="这天主要是为了实现根据鼠标的移动使阴影的位置也能动好像没什么特殊的，主要是shadow位置的算法。但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/child"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-30day16" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/30day16/" class="article-date">
+  <time datetime="2019-04-08T07:40:20.149Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      30daysJS 16 JS监听鼠标并改变文字阴影
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这天主要是为了实现根据鼠标的移动使阴影的位置也能动<br>好像没什么特殊的，主要是shadow位置的算法。<br>但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？</p>
+<a id="more"></a>
+<blockquote>
+<p>这个在第13天出现过(滚动图片飞入)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func, wait = 20, immediate = true) &#123;</span><br><span class="line">  var timeout;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var context = this, args = arguments;</span><br><span class="line">    var later = function() &#123;</span><br><span class="line">      timeout = null;</span><br><span class="line">      if (!immediate) func.apply(context, args);</span><br><span class="line">    &#125;;</span><br><span class="line">    var callNow = immediate &amp;&amp; !timeout;</span><br><span class="line">    clearTimeout(timeout);</span><br><span class="line">    timeout = setTimeout(later, wait);</span><br><span class="line">    if (callNow) func.apply(context, args);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>参数是20的后果就是…一卡一卡的！<br>7比较合适，但是好像没有起到减少数据量的目标？？？<br>好吧，他可能是没必要的。</p>
+<p>####查了资料说有两种，一种是防抖，一种是节流</p>
+<ul>
+<li><p>函数防抖<br>函数防抖（debounce）：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件时，才会延时触发scroll事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, wait) &#123;</span><br><span class="line">    var timeout = null;</span><br><span class="line">    return function() &#123;</span><br><span class="line">        if(timeout !== null) </span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">        timeout = setTimeout(fn, wait);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 处理函数</span><br><span class="line">function handle() &#123;</span><br><span class="line">    console.log(Math.random()); </span><br><span class="line">&#125;</span><br><span class="line">// 滚动事件</span><br><span class="line">window.addEventListener(&apos;scroll&apos;, debounce(handle, 1000));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数节流<br>函数节流（throttle）：当持续触发事件时，保证一定时间段内只调用一次事件处理函数。节流通俗解释就比如我们水龙头放水，阀门一打开，水哗哗的往下流，秉着勤俭节约的优良传统美德，我们要把水龙头关小点，最好是如我们心意按照一定规律在某个时间间隔内一滴一滴的往下滴。如下图，持续触发scroll事件时，并不立即执行handle函数，每隔1000毫秒才会执行一次handle函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function throttle(func, delay) &#123;</span><br><span class="line">            var prev = Date.now();</span><br><span class="line">            return function() &#123;</span><br><span class="line">                var context = this;</span><br><span class="line">                var args = arguments;</span><br><span class="line">                var now = Date.now();</span><br><span class="line">                if (now - prev &gt;= delay) &#123;</span><br><span class="line">                    func.apply(context, args);</span><br><span class="line">                    prev = Date.now();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function handle() &#123;</span><br><span class="line">            console.log(Math.random());</span><br><span class="line">        &#125;</span><br><span class="line">        window.addEventListener(&apos;scroll&apos;, throttle(handle, 1000));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>让我试试<strong>节流</strong>有没有用<br>有效的减少了数据量！但是动画会一卡一卡的Orz<br>把delay设置成35看不出来太大的卡顿，设置一个变量count计算函数运行了多少次<br>鼠标从最右边尽量匀速移动到最左边，在动画效果基本不变的情况下<strong>原函数调用了190次，节流之后只有36次！</strong>有效！</p>
+<p>果然直接调用mousemove这类监听血亏，如果动画效果复杂的话可以试着让变化延迟一些，然后增加delay，力行节俭！</p>
+<blockquote>
+<p>还能用节流研究一下鼠标移动的参数与他的阴影算法</p>
+</blockquote>
+<p>#有机会我要用这个写一个迷宫。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/30day16/" data-id="cju81sn300000ygrhvus3fkn2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/08/30day15/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">30daysJS 15 JS调用与建立Local Storage</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/30daysJS/" style="font-size: 20px;">30daysJS</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python3/" style="font-size: 20px;">python3</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/30day16/">30daysJS 16 JS监听鼠标并改变文字阴影</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/30day15/">30daysJS 15 JS调用与建立Local Storage</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python0/">Python学习指南</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python1/">python3爬取淘宝搜索</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/mysql1/">mysql8安装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

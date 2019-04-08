@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python学习指南 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="收藏一篇来自脚本之家的推文">
+<meta name="keywords" content="python3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习指南">
+<meta property="og:url" content="http://yoursite.com/child/2019/04/08/python0/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="收藏一篇来自脚本之家的推文">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T07:38:56.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习指南">
+<meta name="twitter:description" content="收藏一篇来自脚本之家的推文">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/child"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/python0/" class="article-date">
+  <time datetime="2019-04-08T07:36:56.774Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python学习指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>收藏一篇来自脚本之家的推文</p>
+<a id="more"></a>
+<p>如果你仔细观察，就不难发现，懂爬虫、学习爬虫的人越来越多，一方面，互联网可以获取的数据越来越多，另一方面，像 Python这样的编程语言提供越来越多的优秀工具，让爬虫变得简单、容易上手。</p>
+<p>对于小白来说，爬虫可能是一件非常复杂、技术门槛很高的事情。比如有的人认为学爬虫必须精通 Python，然后哼哧哼哧系统学习 Python 的每个知识点，很久之后发现仍然爬不了数据；有的人则认为先要掌握网页的知识，遂开始 HTMLCSS，结果入了前端的坑，瘁……</p>
+<p>但掌握正确的方法，在短时间内做到能够爬取主流网站的数据，其实非常容易实现。但建议你从一开始就要有一个具体的目标，你要爬取哪个网站的哪些数据，达到什么量级。</p>
+<p>那些所有你认为必须的前置知识，都是可以在完成目标的过程中学到的。这里给你一条平滑的、零基础快速入门的学习路径。</p>
+<blockquote>
+<p>1.学习Python包并实现基本的爬虫过程<br>2.掌握各种技巧，应对特殊网站的反爬措施<br>3.学习scrapy，搭建工程化爬虫<br>4.学习数据库知识，应对大规模数据存储与提取<br>5.分布式爬虫，实现大规模并发采集</p>
+</blockquote>
+<p>#####- ❶ -学习 Python 包并实现基本的爬虫过程</p>
+<p>大部分爬虫都是按“发送请求——获得页面——解析页面——抽取并储存内容”这样的流程来进行，这其实也是模拟了我们使用浏览器获取网页信息的过程。</p>
+<p>Python中爬虫相关的包很多：urllib、requests、bs4、scrapy、pyspider 等，建议从requests+Xpath 开始，requests 负责连接网站，返回网页，Xpath 用于解析网页，便于抽取数据。</p>
+<p>如果你用过 BeautifulSoup，会发现 Xpath 要省事不少，一层一层检查元素代码的工作，全都省略了。这样下来基本套路都差不多，一般的静态网站根本不在话下，豆瓣、糗事百科、腾讯新闻等基本上都可以上手了。</p>
+<p>#####- ❷ -掌握各种技巧，应对特殊网站的反爬措施</p>
+<p>当然，爬虫过程中也会经历一些绝望，比如被封IP、比如各种奇怪的验证码、字体加密、userAgent访问限制、各种动态加载等等。</p>
+<p>遇到这些反爬虫的手段，当然还需要一些高级的技巧来应对，常规的比如访问频率控制、使用代理IP池、字体反加密、抓包、验证码的OCR处理等等。</p>
+<p>往往网站在高效开发和反爬虫之间会偏向前者，这也为爬虫提供了空间，掌握这些应对反爬虫的技巧，绝大部分的网站已经难不到你了。</p>
+<p>#####- ❸ - 学习 scrapy，搭建工程化的爬虫</p>
+<p>掌握前面的技术一般量级的数据和代码基本没有问题了，但是在遇到非常复杂的情况，可能仍然会力不从心，这个时候，强大的 scrapy 框架就非常有用了。</p>
+<p>scrapy 是一个功能非常强大的爬虫框架，它不仅能便捷地构建request，还有强大的 selector 能够方便地解析 response，然而它最让人惊喜的还是它超高的性能，让你可以将爬虫工程化、模块化。</p>
+<p>学会 scrapy，你可以自己去搭建一些爬虫框架，你就基本具备爬虫工程师的思维了。</p>
+<p>#####- ❹ -学习数据库基础，应对大规模数据存储</p>
+<p>爬回来的数据量小的时候，你可以用文档的形式来存储，一旦数据量大了，这就有点行不通了。所以掌握一种数据库是必须的，学习目前比较主流的 MongoDB 就OK。</p>
+<p>MongoDB 可以方便你去存储一些非结构化的数据，比如各种评论的文本，图片的链接等等。你也可以利用PyMongo，更方便地在Python中操作MongoDB。</p>
+<p>因为这里要用到的数据库知识其实非常简单，主要是数据如何入库、如何进行提取，在需要的时候再学习就行。</p>
+<h5 id="❺-分布式爬虫，实现大规模并发采集"><a href="#❺-分布式爬虫，实现大规模并发采集" class="headerlink" title="- ❺ -分布式爬虫，实现大规模并发采集"></a>- ❺ -分布式爬虫，实现大规模并发采集</h5><p>爬取基本数据已经不是问题了，你的瓶颈会集中到爬取海量数据的效率。这个时候，相信你会很自然地接触到一个很厉害的名字：分布式爬虫。</p>
+<p>分布式这个东西，听起来很恐怖，但其实就是利用多线程的原理让多个爬虫同时工作，需要你掌握 Scrapy + MongoDB + Redis 这三种工具。</p>
+<p>Scrapy 前面我们说过了，用于做基本的页面爬取，MongoDB 用于存储爬取的数据，Redis 则用来存储要爬取的网页队列，也就是任务队列。</p>
+<p>所以有些东西看起来很吓人，但其实分解开来，也不过如此。当你能够写分布式的爬虫的时候，那么你可以去尝试打造一些基本的爬虫架构了，实现更加自动化的数据获取。</p>
+<p>#####- 如何高效学习 -</p>
+<p>你看，这一条学习路径下来，你已然可以成为老司机了，非常的顺畅。所以在一开始的时候，尽量不要系统地去啃一些东西，找一个实际的项目（开始可以从豆瓣、小猪这种简单的入手），直接开始就好。</p>
+<p>因为爬虫这种技术，既不需要你系统地精通一门语言，也不需要多么高深的数据库技术，高效的姿势就是从实际的项目中去学习这些零散的知识点，你能保证每次学到的都是最需要的那部分。</p>
+<p>当然唯一麻烦的是，在具体的问题中，如何找到具体需要的那部分学习资源、如何筛选和甄别，是很多初学者面临的一个大问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/python0/" data-id="cju81m10x000cgkrhtu8f6ur0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/08/30day15/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          30daysJS 15 JS调用与建立Local Storage
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/08/python1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python3爬取淘宝搜索</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/30daysJS/" style="font-size: 20px;">30daysJS</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python3/" style="font-size: 20px;">python3</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/30day16/">30daysJS 16 JS监听鼠标并改变文字阴影</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/30day15/">30daysJS 15 JS调用与建立Local Storage</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python0/">Python学习指南</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/python1/">python3爬取淘宝搜索</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/mysql1/">mysql8安装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>用hexo与github搭建博客 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="因为已经装了git和node，SSH key也已经部署了，直接安装hexo就好了 1npm install -g hexo-cli 有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）找个文件夹，稳健起见就不用中文名路径了，然后1hexo init 修改_config.yml，最后一项改成1234deploy:     type: git     repo: ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用hexo与github搭建博客">
+<meta property="og:url" content="http://yoursite.com/child/2019/04/08/makeblog/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="因为已经装了git和node，SSH key也已经部署了，直接安装hexo就好了 1npm install -g hexo-cli 有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）找个文件夹，稳健起见就不用中文名路径了，然后1hexo init 修改_config.yml，最后一项改成1234deploy:     type: git     repo: ht">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T02:58:20.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用hexo与github搭建博客">
+<meta name="twitter:description" content="因为已经装了git和node，SSH key也已经部署了，直接安装hexo就好了 1npm install -g hexo-cli 有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）找个文件夹，稳健起见就不用中文名路径了，然后1hexo init 修改_config.yml，最后一项改成1234deploy:     type: git     repo: ht">
+  
+    <link rel="alternate" href="/atom.xml" title="wenz" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">self blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/child"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-makeblog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/makeblog/" class="article-date">
+  <time datetime="2019-04-08T01:34:43.173Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用hexo与github搭建博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为已经装了git和node，SSH key也已经部署了，直接安装hexo就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>有两个warn，不过好像不影响（查了一下fsevents是苹果依赖的，npm跳过安装）<br>找个文件夹，稳健起见就不用中文名路径了，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>修改_config.yml，最后一项改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo: https://github.com/wenz1xv/wenz1xv.github.io.git  #我的github项目地址</span><br><span class="line">     branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后试着部署：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #这命令是为了解决hexo新版本的部署问题</span><br><span class="line"></span><br><span class="line">npm g #生成页面</span><br><span class="line">npm d #同步页面</span><br></pre></td></tr></table></figure></p>
+<p>然后就能看到页面，虽然中间报错了两次，但是不影响<br>然后修改主题和一些其他的，修改 _config.yml文件就行了<br>主题在heroku的git仓库有</p>
+<p>发现除了根目录的_config.yml可以调整<br>在theme文件夹内也有一个_config.yml用于调整模板</p>
+<p>参考资料<br><a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">https://www.jianshu.com/p/465830080ea9</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/makeblog/" data-id="cju7rm05p00018orhyyg3m59p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo 命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/makeblog/">用hexo与github搭建博客</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/hello-world/">hexo 命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="wenz">
 <meta property="og:description" content="这天主要是为了实现根据鼠标的移动使阴影的位置也能动好像没什么特殊的，主要是shadow位置的算法。但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-08T07:42:02.511Z">
+<meta property="og:updated_time" content="2019-04-08T12:03:21.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="30daysJS 16 JS监听鼠标并改变文字阴影">
 <meta name="twitter:description" content="这天主要是为了实现根据鼠标的移动使阴影的位置也能动好像没什么特殊的，主要是shadow位置的算法。但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？">
@@ -89,9 +89,8 @@
       
         <p>这天主要是为了实现根据鼠标的移动使阴影的位置也能动<br>好像没什么特殊的，主要是shadow位置的算法。<br>但是这个刷新频率看得我慎得慌，我试着加一个延时函数试试？</p>
 <a id="more"></a>
-<blockquote>
-<p>这个在第13天出现过(滚动图片飞入)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func, wait = 20, immediate = true) &#123;</span><br><span class="line">  var timeout;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var context = this, args = arguments;</span><br><span class="line">    var later = function() &#123;</span><br><span class="line">      timeout = null;</span><br><span class="line">      if (!immediate) func.apply(context, args);</span><br><span class="line">    &#125;;</span><br><span class="line">    var callNow = immediate &amp;&amp; !timeout;</span><br><span class="line">    clearTimeout(timeout);</span><br><span class="line">    timeout = setTimeout(later, wait);</span><br><span class="line">    if (callNow) func.apply(context, args);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<p>这个在第13天出现过(滚动图片飞入)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func, wait = 20, immediate = true) &#123;</span><br><span class="line">  var timeout;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var context = this, args = arguments;</span><br><span class="line">    var later = function() &#123;</span><br><span class="line">      timeout = null;</span><br><span class="line">      if (!immediate) func.apply(context, args);</span><br><span class="line">    &#125;;</span><br><span class="line">    var callNow = immediate &amp;&amp; !timeout;</span><br><span class="line">    clearTimeout(timeout);</span><br><span class="line">    timeout = setTimeout(later, wait);</span><br><span class="line">    if (callNow) func.apply(context, args);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参数是20的后果就是…一卡一卡的！<br>7比较合适，但是好像没有起到减少数据量的目标？？？<br>好吧，他可能是没必要的。</p>
 <p>####查了资料说有两种，一种是防抖，一种是节流</p>
 <ul>
@@ -112,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/30days16/" data-id="cju8b1fvm000nsgrh3s16dfnf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/30days16/" data-id="cju8b3fjg0001dsrh2jgjnznw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>

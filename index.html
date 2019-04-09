@@ -65,6 +65,135 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-heroku" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/09/heroku/" class="article-date">
+  <time datetime="2019-04-09T09:14:34.194Z" itemprop="datePublished">2019-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/09/heroku/">记录heroku发布的应用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用heroku发布了一些apps，在这记录一下</p>
+<ul>
+<li>诗词搜索</li>
+<li>五子棋</li>
+<li><p>在线聊天</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/09/heroku/#more">Read More</a>
+          </p>
+        
+      
+    </li></ul></div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/09/heroku/" data-id="cju9kzm6m000duwrht4mxknbf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keroku/">keroku</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tool" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/09/tool/" class="article-date">
+  <time datetime="2019-04-09T09:03:39.038Z" itemprop="datePublished">2019-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/09/tool/">记录使用的一些工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>发现东西全都装surface上，然后就会忘了装过什么<br>得记录一下，缺了什么工具能及时补上<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2019/04/09/tool/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/09/tool/" data-id="cju9kzm6q000fuwrh6co08bqt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-socketio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/socketio/" class="article-date">
+  <time datetime="2019-04-08T14:43:51.110Z" itemprop="datePublished">2019-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/08/socketio/">用socket.io与heroku部署页面聊天app</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>使用materializecss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;!--Import Google Icon Font--&gt;</span><br><span class="line">    &lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">    &lt;!--Import materialize.css--&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--Let browser know website is optimized for mobile--&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line"></span><br><span class="line">  &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--JavaScript at end of body for optimized loading--&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/socketio/" data-id="cju9kzm6v000iuwrhx2rsq0yy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Andhadhun" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/08/Andhadhun/" class="article-date">
@@ -98,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/Andhadhun/" data-id="cju8f4uke0001jkrhtv7qvm91" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/Andhadhun/" data-id="cju9kzm6a000auwrh21hl395d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/movie/">movie</a></li></ul>
@@ -141,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/30days16/" data-id="cju8f4ukj0003jkrhf4wv9cic" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/30days16/" data-id="cju9kzm5a0003uwrhais870a0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
@@ -184,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/30days15/" data-id="cju8f4ukm0005jkrhpv2t66e2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/30days15/" data-id="cju9kzm560001uwrh3o6gpiqc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
@@ -227,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/python_learning_guide/" data-id="cju8f4ukp0008jkrhz4yr4crb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/python_learning_guide/" data-id="cju9kzm6x000juwrhsgqmlusq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
@@ -270,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/python_get_taobao_data/" data-id="cju8f4ule000kjkrhc8dight8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/python_get_taobao_data/" data-id="cju9kzm84000tuwrho1y10eoc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
@@ -313,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/set_up_mysql/" data-id="cju8f4ukq000ajkrh2seyvt10" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/set_up_mysql/" data-id="cju9kzm670009uwrhe6gr9spz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
@@ -356,50 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/makeblog/" data-id="cju8f4ukk0004jkrh73b7hv3m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/08/hello-world/" class="article-date">
-  <time datetime="2019-04-08T00:23:22.114Z" itemprop="datePublished">2019-04-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/08/hello-world/">hexo 命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录一些在写博客时用的命令</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/04/08/hello-world/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/child/2019/04/08/hello-world/" data-id="cju8f4ujz0000jkrhxz98ul86" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/child/2019/04/08/makeblog/" data-id="cju9kzm6e000cuwrhupzc6ft9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
@@ -412,6 +498,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -424,7 +515,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keroku/">keroku</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li></ul>
     </div>
   </div>
 
@@ -434,7 +525,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/30daysJS/" style="font-size: 20px;">30daysJS</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python3/" style="font-size: 20px;">python3</a>
+      <a href="/tags/30daysJS/" style="font-size: 20px;">30daysJS</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/keroku/" style="font-size: 10px;">keroku</a> <a href="/tags/movie/" style="font-size: 10px;">movie</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python3/" style="font-size: 20px;">python3</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
     </div>
   </div>
 
@@ -456,23 +547,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/09/heroku/">记录heroku发布的应用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/09/tool/">记录使用的一些工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/socketio/">用socket.io与heroku部署页面聊天app</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/08/Andhadhun/">Andhadhun.调音师</a>
           </li>
         
           <li>
             <a href="/2019/04/08/30days16/">30daysJS 16 JS监听鼠标并改变文字阴影</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/08/30days15/">30daysJS 15 JS调用与建立Local Storage</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/08/python_learning_guide/">Python学习指南</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/08/python_get_taobao_data/">python3爬取淘宝搜索</a>
           </li>
         
       </ul>

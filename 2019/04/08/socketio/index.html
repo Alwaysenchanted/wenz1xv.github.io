@@ -5,18 +5,20 @@
   
 
   
-  <title>Tag: 30daysJS | wenz</title>
+  <title>用socket.io与heroku部署页面聊天app | wenz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is the blog made by wenz">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wenz">
-<meta property="og:url" content="http://yoursite.com/child/tags/30daysJS/index.html">
+  <meta name="description" content="html使用materializecss123456789101112131415161718&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;!--Import Google Icon Font--&amp;gt;    &amp;lt;link href=&amp;quot;https://fonts.googleapis.com/icon?family=M">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用socket.io与heroku部署页面聊天app">
+<meta property="og:url" content="http://yoursite.com/child/2019/04/08/socketio/index.html">
 <meta property="og:site_name" content="wenz">
-<meta property="og:description" content="This is the blog made by wenz">
+<meta property="og:description" content="html使用materializecss123456789101112131415161718&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;!--Import Google Icon Font--&amp;gt;    &amp;lt;link href=&amp;quot;https://fonts.googleapis.com/icon?family=M">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T14:49:20.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wenz">
-<meta name="twitter:description" content="This is the blog made by wenz">
+<meta name="twitter:title" content="用socket.io与heroku部署页面聊天app">
+<meta name="twitter:description" content="html使用materializecss123456789101112131415161718&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;!--Import Google Icon Font--&amp;gt;    &amp;lt;link href=&amp;quot;https://fonts.googleapis.com/icon?family=M">
   
   
     <link rel="icon" href="/favicon.png">
@@ -63,59 +65,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/08/30days16/" class="archive-article-date">
-  <time datetime="2019-04-08T07:40:20.149Z" itemprop="datePublished">Apr 8</time>
+        <section id="main"><article id="post-socketio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/08/socketio/" class="article-date">
+  <time datetime="2019-04-08T14:43:51.110Z" itemprop="datePublished">2019-04-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/30days16/">30daysJS 16 JS监听鼠标并改变文字阴影</a>
+    <h1 class="article-title" itemprop="name">
+      用socket.io与heroku部署页面聊天app
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/08/30days15/" class="archive-article-date">
-  <time datetime="2019-04-08T07:38:07.852Z" itemprop="datePublished">Apr 8</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/30days15/">30daysJS 15 JS调用与建立Local Storage</a>
-    </h1>
-  
+        <h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>使用materializecss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;!--Import Google Icon Font--&gt;</span><br><span class="line">    &lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">    &lt;!--Import materialize.css--&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--Let browser know website is optimized for mobile--&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line"></span><br><span class="line">  &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--JavaScript at end of body for optimized loading--&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/child/2019/04/08/socketio/" data-id="cju9kzm6v000iuwrhx2rsq0yy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/09/tool/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          记录使用的一些工具
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/04/08/Andhadhun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Andhadhun.调音师</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

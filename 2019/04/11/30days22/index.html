@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>30daysJS 22 JS指针按钮悬浮高亮 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="主要高亮通过一个新建一个带BG的span实现">
+<meta name="keywords" content="30daysJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30daysJS 22 JS指针按钮悬浮高亮">
+<meta property="og:url" content="https://wenz1xv.github.io/2019/04/11/30days22/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="主要高亮通过一个新建一个带BG的span实现">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T13:56:32.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="30daysJS 22 JS指针按钮悬浮高亮">
+<meta name="twitter:description" content="主要高亮通过一个新建一个带BG的span实现">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wenz1xv.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-30days22" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/30days22/" class="article-date">
+  <time datetime="2019-04-11T13:54:42.579Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      30daysJS 22 JS指针按钮悬浮高亮
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要高亮通过一个新建一个带BG的span实现</p>
+<a id="more"></a>
+<p>实现方案</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> activeBackground = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>);</span><br><span class="line">activeBackground .setAttribute(<span class="string">'class'</span>,<span class="string">'heighlight'</span>);</span><br><span class="line">activeBackground.style.display = <span class="string">'none'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//CSS</span></span><br><span class="line"><span class="comment">/* .highlight &#123;</span></span><br><span class="line"><span class="comment">  transition: all 0.2s;</span></span><br><span class="line"><span class="comment">  border-bottom:2px solid white;</span></span><br><span class="line"><span class="comment">  position: absolute;</span></span><br><span class="line"><span class="comment">  top:0;</span></span><br><span class="line"><span class="comment">  background:white;</span></span><br><span class="line"><span class="comment">  left:0;</span></span><br><span class="line"><span class="comment">  z-index: -1;</span></span><br><span class="line"><span class="comment">  border-radius:20px;</span></span><br><span class="line"><span class="comment">  display: block;</span></span><br><span class="line"><span class="comment">  box-shadow: 0 0 10px rgba(0,0,0,0.2)</span></span><br><span class="line"><span class="comment">&#125; */</span></span><br></pre></td></tr></table></figure>
+<p>这个span需要满足：</p>
+<ol>
+<li>长宽和目标按钮一致</li>
+<li>位置和目标按钮一致</li>
+<li>随着鼠标移动位置变化</li>
+</ol>
+<h5 id="获取按钮属性并赋值"><a href="#获取按钮属性并赋值" class="headerlink" title="获取按钮属性并赋值"></a>获取按钮属性并赋值</h5><p>通过一个函数lightOn实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lightOn</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> activeS = e.target.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> coords = &#123;</span><br><span class="line">          height: activeS.height,</span><br><span class="line">          width: activeS.width,</span><br><span class="line">          left: <span class="built_in">window</span>.pageXOffset + activeS.left,</span><br><span class="line">          top: <span class="built_in">window</span>.pageYOffset + activeS.top</span><br><span class="line">        &#125;;</span><br><span class="line">        activeBackground.style.height = <span class="string">`<span class="subst">$&#123;coords.height&#125;</span>px`</span>;</span><br><span class="line">        activeBackground.style.width = <span class="string">`<span class="subst">$&#123;coords.width&#125;</span>px`</span>;</span><br><span class="line">        activeBackground.style.left = <span class="string">`<span class="subst">$&#123;coords.left&#125;</span>px`</span>;</span><br><span class="line">        activeBackground.style.top = <span class="string">`<span class="subst">$&#123;coords.top&#125;</span>px`</span>;</span><br><span class="line">        activeBackground.style.display = <span class="string">"inline"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过Element.getBoundingClientRect()返回元素大小及相对视口位置<br>返回属性(全部只读)：</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bottom</td>
+<td>float</td>
+<td>Y 轴，相对于视口原点（viewport origin）矩形盒子的底部。 </td>
+</tr>
+<tr>
+<td>height</td>
+<td>float</td>
+<td>矩形盒子的高度（等同于 bottom 减 top）。</td>
+</tr>
+<tr>
+<td>left</td>
+<td>float</td>
+<td>X 轴，相对于视口原点（viewport origin）矩形盒子的左侧。</td>
+</tr>
+<tr>
+<td>right</td>
+<td>float</td>
+<td>X 轴，相对于视口原点（viewport origin）矩形盒子的右侧。</td>
+</tr>
+<tr>
+<td>top</td>
+<td>float</td>
+<td>Y 轴，相对于视口原点（viewport origin）矩形盒子的顶部。</td>
+</tr>
+<tr>
+<td>width</td>
+<td>float</td>
+<td>矩形盒子的宽度（等同于 right 减 left）。 </td>
+</tr>
+<tr>
+<td>x</td>
+<td>float</td>
+<td>X轴横坐标，矩形盒子左边相对于视口原点（viewport origin）的距离。 </td>
+</tr>
+<tr>
+<td>y</td>
+<td>float</td>
+<td>Y轴纵坐标，矩形盒子顶部相对于视口原点（viewport origin）的距离。</td>
+</tr>
+</tbody>
+</table>
+<p>这里用到了height、width、left、top分别确定高、宽、x、y值<br>然后简单处理后赋值给activeBackground.style相应属性</p>
+<h5 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h5><p>此处它用的监听是这样写的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> oli = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oli.length; i++) &#123;</span><br><span class="line">    oli[i].onmouseenter = lightOn;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//改写成in循环好像会简洁一点</span></span><br></pre></td></tr></table></figure></p>
+<p>问题是监听的形式跟我之前了解的不一样<br>不再是addEventlistener了，而是Element.onmouseenter<br>通过循环给每个元素添加监听，可以再了解一下。</p>
+<p>#新的监听方式！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wenz1xv.github.io/2019/04/11/30days22/" data-id="cjucpl6260001norhy3z13xqt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/11/30days23/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          30daysJS 23 JS朗读文本
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/11/30days18/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">30daysJS 18 Navigator接口</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anime/">anime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keroku/">keroku</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

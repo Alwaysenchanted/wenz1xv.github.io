@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>30daysJS 18 Navigator接口 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第18天的挑战引入了Web API：Navigator">
+<meta name="keywords" content="30daysJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30daysJS 18 Navigator接口">
+<meta property="og:url" content="https://wenz1xv.github.io/2019/04/11/30days18/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="第18天的挑战引入了Web API：Navigator">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T13:56:53.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="30daysJS 18 Navigator接口">
+<meta name="twitter:description" content="第18天的挑战引入了Web API：Navigator">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wenz1xv.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-30days18" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/30days18/" class="article-date">
+  <time datetime="2019-04-11T13:52:55.191Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      30daysJS 18 Navigator接口
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第18天的挑战引入了Web API：Navigator</p>
+<a id="more"></a>
+<p>打开Chrome的新标签页，F12，在console键入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.navigator</span><br></pre></td></tr></table></figure></p>
+<p>可以看到：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Navigator &#123;vendorSub: "", productSub: "20030107", vendor: "Google Inc.", maxTouchPoints: 10, hardwareConcurrency: 4, …&#125;</span><br><span class="line">#展开</span><br><span class="line">appCodeName: "Mozilla"</span><br><span class="line">appName: "Netscape"</span><br><span class="line">appVersion: "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"</span><br><span class="line">bluetooth: Bluetooth &#123;&#125;</span><br><span class="line">clipboard: Clipboard &#123;&#125;</span><br><span class="line">connection: NetworkInformation &#123;onchange: null, effectiveType: "4g", rtt: 100, downlink: 9.2, saveData: false&#125;</span><br><span class="line">cookieEnabled: true</span><br><span class="line">credentials: CredentialsContainer &#123;&#125;</span><br><span class="line">deviceMemory: 4</span><br><span class="line">doNotTrack: "1"</span><br><span class="line">geolocation: Geolocation &#123;&#125;</span><br><span class="line">hardwareConcurrency: 4</span><br><span class="line">keyboard: Keyboard &#123;&#125;</span><br><span class="line">language: "zh-CN"</span><br><span class="line">languages: (2) ["zh-CN", "zh"]</span><br><span class="line">locks: LockManager &#123;&#125;</span><br><span class="line">maxTouchPoints: 10</span><br><span class="line">mediaCapabilities: MediaCapabilities &#123;&#125;</span><br><span class="line">mediaDevices: MediaDevices &#123;ondevicechange: null&#125;</span><br><span class="line">mediaSession: MediaSession &#123;metadata: null, playbackState: "none"&#125;</span><br><span class="line">mimeTypes: MimeTypeArray &#123;0: MimeType, 1: MimeType, 2: MimeType, 3: MimeType, application/pdf: MimeType, application/x-google-chrome-pdf: MimeType, application/x-nacl: MimeType, application/x-pnacl: MimeType, length: 4&#125;</span><br><span class="line">onLine: true</span><br><span class="line">permissions: Permissions &#123;&#125;</span><br><span class="line">platform: "Win32"</span><br><span class="line">plugins: PluginArray &#123;0: Plugin, 1: Plugin, 2: Plugin, Chrome PDF Plugin: Plugin, Chrome PDF Viewer: Plugin, Native Client: Plugin, length: 3&#125;</span><br><span class="line">presentation: Presentation &#123;receiver: null, defaultRequest: null&#125;</span><br><span class="line">product: "Gecko"</span><br><span class="line">productSub: "20030107"</span><br><span class="line">serviceWorker: ServiceWorkerContainer &#123;ready: Promise, controller: null, oncontrollerchange: null, onmessage: null&#125;</span><br><span class="line">storage: StorageManager &#123;&#125;</span><br><span class="line">usb: USB &#123;onconnect: null, ondisconnect: null&#125;</span><br><span class="line">userActivation: UserActivation &#123;hasBeenActive: true, isActive: true&#125;</span><br><span class="line">userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"</span><br><span class="line">vendor: "Google Inc."</span><br><span class="line">vendorSub: ""</span><br><span class="line">webkitPersistentStorage: DeprecatedStorageQuota &#123;&#125;</span><br><span class="line">webkitTemporaryStorage: DeprecatedStorageQuota &#123;&#125;</span><br><span class="line">__proto__: Navigator</span><br></pre></td></tr></table></figure></p>
+<p>参阅developer.mozilla.org上的内容：<br>不从<em><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID" title="NavigatorID 接口包含浏览器识别相关的方法和属性。" target="_blank" rel="noopener"><code>NavigatorID</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorLanguage" title="NavigatorLanguage 包含涉及导航（Navigator）的语言特性的方法和属性。" target="_blank" rel="noopener"><code>NavigatorLanguage</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine" title="NavigatorOnLine接口包含了与浏览器网络连接状态相关的方法和属性。" target="_blank" rel="noopener"><code>NavigatorOnLine</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorGeolocation" title="NavigatorGeolocation  contains a creation method allowing objects implementing it to obtain a Geolocation instance." target="_blank" rel="noopener"><code>NavigatorGeolocation</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorPlugins" title="The NavigatorPlugins interface contains methods and properties related to the plugins installed in the browser." target="_blank" rel="noopener"><code>NavigatorPlugins</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorUserMedia" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>NavigatorUserMedia</code></a>, </em>和 <em><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NetworkInformation" title="NetworkInformation 提供有关设备正在使用的连接与网络进行通信的信息，并提供了在连接类型更改时通知脚本的事件。NetworkInformation 接口不能被是实例化， 而是通过 Navigator 的 connection 属性进行访问。" target="_blank" rel="noopener"><code>NetworkInformation</code></a> </em>中继承任何属性，但是实现了定义在这些对象中的如下属性。</p>
+<h3 id="标准属性节"><a href="#标准属性节" class="headerlink" title="标准属性节"></a>标准属性<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator#%E6%A0%87%E5%87%86%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener">节</a></h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/activeVRDisplays" title="activeVRDisplays是Navigator 接口返回的数组中每个VRDisplay对象中的的只读属性(VRDisplay.ispresenting为true)." target="_blank" rel="noopener"><code>Navigator.activeVRDisplays</code></a> 只读</p>
+<p>筛选所有的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/VRDisplay" title="WebVR API 中的 VRDisplay 代表任何支持此 API 的 VR 设备。它包括了设备 ID、描述信息等诸如此类的通用信息，以及用于开始呈现 VR 场景、检索眼睛参数和显示能力以及其他重要的功能和方法。" target="_blank" rel="noopener"><code>VRDisplay</code></a> 对象，把其中所有<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/VRDisplay/ispresenting" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>VRDisplay.ispresenting</code></a>属性的值为<code>true</code>的对象以数组的形式返回。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/appCodeName" title="返回所使用浏览器的内部名称." target="_blank" rel="noopener"><code>NavigatorID.appCodeName</code></a> 只读</p>
+<p>返回当前浏览器的内部“开发代号”名称。 不能保证此属性返回的值是正确的。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/appName" title="返回所使用浏览器的名称。由于兼容性问题，HTML5规范允许该属性返回 Netscape。" target="_blank" rel="noopener"><code>NavigatorID.appName</code></a> 只读</p>
+<p>以 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString" title="DOMString 是一个UTF-16字符串。由于JavaScript已经使用了这样的字符串，所以DOMString 直接映射到 一个String。" target="_blank" rel="noopener"><code>DOMString</code></a> 的形式返回浏览器官方名称。 不能保证此属性返回的值是正确的。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/appVersion" title="返回一个字符串，表示所使用浏览器的版本号。它可能只包含一个版本数字，如 &#39;5.0&#39;，还可能包含一些其他的相关信息。由于兼容性问题，HTML5规范允许该属性返回 4.0。" target="_blank" rel="noopener"><code>NavigatorID.appVersion</code></a> 只读</p>
+<p>以 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString" title="DOMString 是一个UTF-16字符串。由于JavaScript已经使用了这样的字符串，所以DOMString 直接映射到 一个String。" target="_blank" rel="noopener"><code>DOMString</code></a> 的形式返回浏览器版本。不能保证此属性返回的值是正确的。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/connection" title="Navigator.connection 是只读的，提供一个NetworkInformation 对象来获取设备的网络连接信息。例如用户设备的当前带宽或连接是否被计量， 这可以用于基于用户的连接来选择高清晰度内容或低清晰度内容。" target="_blank" rel="noopener"><code>Navigator.connection</code></a> 只读</p>
+<p>提供一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NetworkInformation" title="NetworkInformation 提供有关设备正在使用的连接与网络进行通信的信息，并提供了在连接类型更改时通知脚本的事件。NetworkInformation 接口不能被是实例化， 而是通过 Navigator 的 connection 属性进行访问。" target="_blank" rel="noopener"><code>NetworkInformation</code></a>对象来获取设备的网络连接信息。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/cookieEnabled" title="navigator.cookieEnabled 返回一个布尔值，来表示当前页面是否启用了 cookie。本属性为只读属性。" target="_blank" rel="noopener"><code>Navigator.cookieEnabled</code></a> 只读</p>
+<p>当忽略 cookie 时返回 false，否则返回 true</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/geolocation" title="Navigator.geolocation 只读属性返回一个 Geolocation 对象，通过这个对象可以访问到设备的位置信息。使网站或应用可以根据用户的位置提供个性化结果。" target="_blank" rel="noopener"><code>Navigator.geolocation</code></a> 只读</p>
+<p>返回一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation" title="Geolocation 接口是一个用来获取设备地理位置的可编程的对象，它可以让Web内容访问到设备的地理位置，这将允许Web应用基于用户的地理位置提供定制的信息。说实话：其实Geolocation 就是用来获取到当前设备的经纬度（位置）" target="_blank" rel="noopener"><code>Geolocation</code></a> 对象，据之可访问设备的地理位位置信息。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorConcurrentHardware/hardwareConcurrency" title="navigator.hardwareConcurrency 指明当前浏览器环境所拥有的CPU核心数，这来自于操作系统提供的API来获取。" target="_blank" rel="noopener"><code>NavigatorConcurrentHardware.hardwareConcurrency</code></a> 只读</p>
+<p>返回当前浏览器环境所拥有的CPU核心数，这来自于操作系统提供的API。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorPlugins/javaEnabled" title="该方法用来表明当前浏览器是否激活了Java." target="_blank" rel="noopener"><code>NavigatorPlugins.javaEnabled</code></a> 只读</p>
+<p>返回<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Boolean" title="布尔值" target="_blank" rel="noopener"><code>Boolean</code></a>表明浏览器是否支持Java。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/keyboard" title="键盘？" target="_blank" rel="noopener"><code>Navigator.keyboard</code></a> 只读 </p>
+<p>Returns a <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Keyboard" title="键盘？" target="_blank" rel="noopener"><code>Keyboard</code></a> object which provides access to functions that retrieve keyboard layout maps and toggle capturing of key presses from the physical keyboard.</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorLanguage/language" title="NavigatorLanguage.language 只读属性返回一个表示用户偏好语言的字符串，通常指浏览器 UI 的语言。" target="_blank" rel="noopener"><code>NavigatorLanguage.language</code></a> 只读</p>
+<p>返回<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString" title="DOMString 是一个UTF-16字符串。由于JavaScript已经使用了这样的字符串，所以DOMString 直接映射到 一个String。" target="_blank" rel="noopener"><code>DOMString</code></a>表示用户的首先语言，通常是浏览器用户界面的语言。当未知的时，返回null。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorLanguage/languages" title="只读属性 NavigatorLanguage.languages 返回一个 DOMString 的数组，数组内容表示网站访客所使用的语言。 使用 BCP 47 语言标签来描述不同的语言。 在返回的数组中，最适合当前用户的语言将会被排到数组的首位。" target="_blank" rel="noopener"><code>NavigatorLanguage.languages</code></a> 只读</p>
+<p> 返回一个表示用户已知语言的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString" title="DOMString 是一个UTF-16字符串。由于JavaScript已经使用了这样的字符串，所以DOMString 直接映射到 一个String。" target="_blank" rel="noopener"><code>DOMString</code></a>数组，并按优先顺序排列。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorPlugins/mimeTypes" title="返回一个MimeTypeArray对象，其中包含可被当前浏览器识别的MimeType对象的列表。" target="_blank" rel="noopener"><code>NavigatorPlugins.mimeTypes</code></a> 只读</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/locks" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Navigator.locks</code></a> 只读</p>
+<p>Returns a <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/LockManager" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>LockManager</code></a> object which provides methods for requesting a new <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Lock" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Lock</code></a> object and querying for an existing <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Lock" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Lock</code></a> object</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/mediaCapabilities" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Navigator.mediaCapabilities</code></a> 只读</p>
+<p>Returns a <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MediaCapabilities" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>MediaCapabilities</code></a> object that can expose information about the decoding and encoding capabilities for a given format and output capabilities.</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/maxTouchPoints" title="[1] This was implemented in bug 248918." target="_blank" rel="noopener"><code>Navigator.maxTouchPoints</code></a> 只读</p>
+<p>Returns the maximum number of simultaneous touch contact points are supported by the current device.</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/onLine" title="返回浏览器的联网状态。正常联网(在线)返回true,不正常联网(离线)返回false。一旦浏览器的联网状态发生改变，该属性值也会随之变化。当用户点击链接或者脚本进行网络请求时，如果发现浏览器连接不上互联网，则该属性会被赋值为false。" target="_blank" rel="noopener"><code>NavigatorOnLine.onLine</code></a> 只读</p>
+<p>返回<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Boolean" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Boolean</code></a>来表明浏览器是否联网。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/oscpu" title="返回一个字符串,代表当前所使用的操作系统类型." target="_blank" rel="noopener"><code>Navigator.oscpu</code></a></p>
+<p>返回当前操作系统名。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/permissions" title="permissions 是 Navigator 读属性，返回一个可用于查询或更新某些APIs（由Permissions API覆盖）的权限状态的对象。" target="_blank" rel="noopener"><code>Navigator.permissions</code></a> 只读</p>
+<p>Returns a <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Permissions</code></a> object that can be used to query and update permission status of APIs covered by the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API" target="_blank" rel="noopener">Permissions API</a>.</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/platform" title="返回一个字符串,表示浏览器所在的系统平台类型." target="_blank" rel="noopener"><code>NavigatorID.platform</code></a> 只读</p>
+<p>返回浏览器平台名，不确定此值是否有效。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorPlugins/plugins" title="返回一个 PluginArray 类型的对象, 包含了当前所使用的浏览器安装的所有插件." target="_blank" rel="noopener"><code>NavigatorPlugins.plugins</code></a> 只读</p>
+<p>返回<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/PluginArray" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>PluginArray</code></a>数组用于列举出浏览器安装的插件。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/product" title="该属性返回当前浏览器的产品名称。" target="_blank" rel="noopener"><code>NavigatorID.product</code></a> 只读 </p>
+<p>在任意浏览器下都只返回<code>&#39;Gecko&#39;</code>，此属性只用于兼容的目的。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/serviceWorker" title="Navigator.serviceWorker 只读属性，返回 关联文件 的 ServiceWorkerContainer 对象，它提供对ServiceWorker 的注册，删除，升级和通信的访问。。" target="_blank" rel="noopener"><code>Navigator.serviceWorker</code></a> 只读</p>
+<p>返回<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ServiceWorkerContainer" title="ServiceWorkerContainer接口为 service worker提供一个容器般的功能，包括对service worker的注册，卸载 ，更新和访问service worker的状态，以及他们的注册者" target="_blank" rel="noopener"><code>ServiceWorkerContainer</code></a> 对象用于提供注册、删除、更新以及为了<a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window" target="_blank" rel="noopener">associated document</a>的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ServiceWorker" title="一个ServiceWorker对象在 ServiceWorkerRegistration.active 属性和 ServiceWorkerContainer.controller 属性中可用 — 这是一个激活并在控制页面的service worker(service worker成功注册,被控页面已经重新加载完毕.)" target="_blank" rel="noopener"><code>ServiceWorker</code></a>对象之间的通信。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorStorage/storage" title=" NavigatorStorage.storage 是一个只读属性，返回单例 StorageManager 对象，用于访问当前网站或应用程序的浏览器整体存储功能的。 " target="_blank" rel="noopener"><code>NavigatorStorage.storage</code></a> 只读</p>
+<p>Returns the singleton <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/StorageManager" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>StorageManager</code></a> object used for managing persistence permissions and estimating available storage on a site-by-site/app-by-app basis.</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorID/userAgent" title="返回当前浏览器的用户代理（user agent）字符串。" target="_blank" rel="noopener"><code>NavigatorID.userAgent</code></a> 只读</p>
+<p>返回当前浏览器的用户代理。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/webdriver" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>Navigator.webdriver</code></a> 只读</p>
+<p>#用这些API，可以写出很有意思的东西的样子。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wenz1xv.github.io/2019/04/11/30days18/" data-id="cjucpl645000ynorhu0gxlgoy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/30daysJS/">30daysJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/11/30days22/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          30daysJS 22 JS指针按钮悬浮高亮
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/10/onePunch/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OnePunchMan 一拳超人S2E1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anime/">anime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keroku/">keroku</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

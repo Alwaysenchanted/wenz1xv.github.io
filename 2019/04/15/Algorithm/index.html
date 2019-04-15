@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>算法 | wenz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+<meta name="keywords" content="algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="https://wenz1xv.github.io/2019/04/15/Algorithm/index.html">
+<meta property="og:site_name" content="wenz">
+<meta property="og:description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-15T12:16:04.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wenz</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">徐文展的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wenz1xv.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Algorithm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/15/Algorithm/" class="article-date">
+  <time datetime="2019-04-15T12:08:44.317Z" itemprop="datePublished">2019-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天看数据结构的入门课程，还不是很理解什么是算法</p>
+<p>今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了——</p>
+<p>这就是算法！</p>
+<a id="more"></a>
+<h3 id="原题："><a href="#原题：" class="headerlink" title="原题："></a>原题：</h3><p>Sheldon, Leonard, Penny, Rajesh and Howard are in the queue for a “Double Cola” drink vending machine; there are no other people in the queue. The first one in the queue (Sheldon) buys a can, drinks it and doubles! The resulting two Sheldons go to the end of the queue. Then the next in the queue (Leonard) buys a can, drinks it and gets to the end of the queue as two Leonards, and so on.<br>For example, Penny drinks the third can of cola and the queue will look like this:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rajesh, Howard, Sheldon, Sheldon, Leonard, Leonard, Penny, Penny</span><br></pre></td></tr></table></figure></p>
+<p>Write a program that will return the name of the person who will drink the n-th cola.<br>我的解：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;r&gt;names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i)<span class="number">-1</span>);i++) ;</span><br><span class="line">  r -= names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)<span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">for</span>(j=<span class="number">0</span>;r&gt;<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)*j;j++) ;</span><br><span class="line">  <span class="keyword">return</span>  names[j<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>平凡、臃肿、笨拙<br>浪费资源、运行慢</p>
+<p>更优：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> l = names.length;</span><br><span class="line">  <span class="keyword">while</span> (r &gt;= l) &#123; r -= l; l *= <span class="number">2</span>; &#125;</span><br><span class="line">  <span class="keyword">return</span> names[<span class="built_in">Math</span>.ceil(names.length * r / l)<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>精巧、简单、轻量</p>
+<h1 id="这就是算法吗！！！！！！！！！！"><a href="#这就是算法吗！！！！！！！！！！" class="headerlink" title="这就是算法吗！！！！！！！！！！"></a>这就是算法吗！！！！！！！！！！</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wenz1xv.github.io/2019/04/15/Algorithm/" data-id="cjuibo96r0003ecrh9layzefp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/14/python_get_1688/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python3爬取1688</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/30daysJS/">30daysJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anime/">anime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keroku/">keroku</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python3/">python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenz<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

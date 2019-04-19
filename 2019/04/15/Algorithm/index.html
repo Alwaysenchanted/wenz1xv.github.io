@@ -5,20 +5,20 @@
   
 
   
-  <title>算法 | wenz</title>
+  <title>算法学习 | wenz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+  <meta name="description" content="记录一些令人挠头的东西">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法">
+<meta property="og:title" content="算法学习">
 <meta property="og:url" content="https://wenz1xv.github.io/2019/04/15/Algorithm/index.html">
 <meta property="og:site_name" content="wenz">
-<meta property="og:description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+<meta property="og:description" content="记录一些令人挠头的东西">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-15T12:16:04.279Z">
+<meta property="og:updated_time" content="2019-04-19T07:28:18.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="昨天看数据结构的入门课程，还不是很理解什么是算法 今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了—— 这就是算法！">
+<meta name="twitter:title" content="算法学习">
+<meta name="twitter:description" content="记录一些令人挠头的东西">
   
   
     <link rel="icon" href="/favicon.png">
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法
+      算法学习
     </h1>
   
 
@@ -87,20 +87,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>昨天看数据结构的入门课程，还不是很理解什么是算法</p>
-<p>今天写JS编程题的时候，遇到了一个题目，网上的解法让我切身的感受到了——</p>
-<p>这就是算法！</p>
+        <p>记录一些令人挠头的东西</p>
 <a id="more"></a>
-<h3 id="原题："><a href="#原题：" class="headerlink" title="原题："></a>原题：</h3><p>Sheldon, Leonard, Penny, Rajesh and Howard are in the queue for a “Double Cola” drink vending machine; there are no other people in the queue. The first one in the queue (Sheldon) buys a can, drinks it and doubles! The resulting two Sheldons go to the end of the queue. Then the next in the queue (Leonard) buys a can, drinks it and gets to the end of the queue as two Leonards, and so on.<br>For example, Penny drinks the third can of cola and the queue will look like this:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rajesh, Howard, Sheldon, Sheldon, Leonard, Leonard, Penny, Penny</span><br></pre></td></tr></table></figure></p>
-<p>Write a program that will return the name of the person who will drink the n-th cola.<br>我的解：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;r&gt;names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i)<span class="number">-1</span>);i++) ;</span><br><span class="line">  r -= names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)<span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">for</span>(j=<span class="number">0</span>;r&gt;<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)*j;j++) ;</span><br><span class="line">  <span class="keyword">return</span>  names[j<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>平凡、臃肿、笨拙<br>浪费资源、运行慢</p>
-<p>更优：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> l = names.length;</span><br><span class="line">  <span class="keyword">while</span> (r &gt;= l) &#123; r -= l; l *= <span class="number">2</span>; &#125;</span><br><span class="line">  <span class="keyword">return</span> names[<span class="built_in">Math</span>.ceil(names.length * r / l)<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>精巧、简单、轻量</p>
-<h1 id="这就是算法吗！！！！！！！！！！"><a href="#这就是算法吗！！！！！！！！！！" class="headerlink" title="这就是算法吗！！！！！！！！！！"></a>这就是算法吗！！！！！！！！！！</h1>
+<h3 id="排队喝饮料，2-n扩增，动态求解"><a href="#排队喝饮料，2-n扩增，动态求解" class="headerlink" title="排队喝饮料，2^n扩增，动态求解"></a>排队喝饮料，2^n扩增，动态求解</h3><h6 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h6><p>Sheldon, Leonard, Penny, Rajesh and Howard are in the queue for a “Double Cola” drink vending machine; there are no other people in the queue. The first one in the queue (Sheldon) buys a can, drinks it and doubles! The resulting two Sheldons go to the end of the queue. Then the next in the queue (Leonard) buys a can, drinks it and gets to the end of the queue as two Leonards, and so on.<br>For example, Penny drinks the third can of cola and the queue will look like this:<br>Rajesh, Howard, Sheldon, Sheldon, Leonard, Leonard, Penny, Penny<br>Write a program that will return the name of the person who will drink the n-th cola.</p>
+<h6 id="循环求解："><a href="#循环求解：" class="headerlink" title="循环求解："></a>循环求解：</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;r&gt;names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i)<span class="number">-1</span>);i++) ;</span><br><span class="line">  r -= names.length*(<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)<span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">for</span>(j=<span class="number">0</span>;r&gt;<span class="built_in">Math</span>.pow(<span class="number">2</span>,i<span class="number">-1</span>)*j;j++) ;</span><br><span class="line">  <span class="keyword">return</span>  names[j<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="动态求解："><a href="#动态求解：" class="headerlink" title="动态求解："></a>动态求解：</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whoIsNext</span>(<span class="params">names, r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> l = names.length;</span><br><span class="line">  <span class="keyword">while</span> (r &gt;= l) &#123; r -= l; l *= <span class="number">2</span>; &#125;</span><br><span class="line">  <span class="keyword">return</span> names[<span class="built_in">Math</span>.ceil(names.length * r / l)<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h5><p>思路一致，动态求解减少处理的数据</p>
+<h3 id="n个-的有效排列"><a href="#n个-的有效排列" class="headerlink" title="n个()的有效排列"></a>n个()的有效排列</h3><h6 id="递归求解："><a href="#递归求解：" class="headerlink" title="递归求解："></a>递归求解：</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">balancedParens</span>(<span class="params">n, match = <span class="number">0</span>, str = <span class="string">''</span>, acc = []</span>) </span>&#123;</span><br><span class="line">  n &amp;&amp; balancedParens(n - <span class="number">1</span>, match + <span class="number">1</span>, str + <span class="string">'('</span>, acc);</span><br><span class="line">  match &amp;&amp; balancedParens(n, match - <span class="number">1</span>, str + <span class="string">')'</span>, acc);</span><br><span class="line">  !n &amp;&amp; !match &amp;&amp; acc.push(str);</span><br><span class="line">  <span class="keyword">return</span> acc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="讨论-1"><a href="#讨论-1" class="headerlink" title="讨论"></a>讨论</h5><p>用递归实现2^n次循环<br>有个c的同题参考：<a href="https://blog.csdn.net/pp634077956/article/details/48274669" target="_blank" rel="noopener">C语言的解</a><br>进一步优化</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wenz1xv.github.io/2019/04/15/Algorithm/" data-id="cjuibo96r0003ecrh9layzefp" class="article-share-link">Share</a>
+      <a data-url="https://wenz1xv.github.io/2019/04/15/Algorithm/" data-id="cjunr5ocx000m7srhymqc8mgv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>

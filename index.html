@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wenz</title>
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+    <style>
+    body{
+        background: #DC9F84;
+    }
+    #main{
+        margin-top: 10%;
+        margin-left: 35%;
+        margin-right: 65%;
+    }
+    .push_button{
+        font-family: 'Acme', sans-serif;
+        font-size: 2em;
+
+        position:relative;
+        width:300px;
+        color:#FFF;
+        display:block;
+        text-decoration:none;
+        margin-top:40px;
+        border-radius:5px;
+        border:solid 1px rgb(155, 58, 46);
+        background:#B54434;
+        text-align:center;
+        padding:20px 30px;
+        -webkit-transition: all 0.1s;
+        -moz-transition: all 0.1s;
+        transition: all 0.1s;
+        
+        -webkit-box-shadow: 0px 9px 0px #84261a;
+            -moz-box-shadow: 0px 9px 0px #84261a;
+            box-shadow: 0px 9px 0px #84261a;
+    }
+    .push_button:active{
+        -webkit-box-shadow: 0px 2px 0px #84261a;
+        -moz-box-shadow: 0px 2px 0px #84261a;
+        box-shadow: 0px 2px 0px #84261a;
+        position:relative;
+        top:7px;
+    }
+    .push_button:hover{
+        cursor:pointer;
+    }
+    </style>
+</head>
+<body>
+    <div id = 'main'>
+        <a href="http://106.14.119.104:8080" style='text-decoration:none;' ><button class = 'push_button'>Nippon Color</button></a>
+        <a href="http://106.14.119.104:3000" style='text-decoration:none;' ><button class = 'push_button'>Lib Seatch</button></a>
+        <a href="javascript:alert('developing')" style='text-decoration:none;' ><button class = 'push_button'>Tricks</button></a>
+        <a href="javascript:alert('developing')" style='text-decoration:none;' ><button class = 'push_button'>Main Page</button></a>
+    </div>
+</body>
+</html>

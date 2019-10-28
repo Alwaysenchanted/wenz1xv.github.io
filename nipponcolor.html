@@ -20,7 +20,7 @@
 	
 <script>
 $(function(){
-    var jsonf = $.ajax({url:'/javascripts/nipponcolor.json',async:false}).responseJSON;
+    var jsonf = $.ajax({url:'http://106.14.119.104:8080/javascripts/nipponcolor.json',async:false}).responseJSON;
     function flash(){
         var json = { 
             id: '111',
@@ -28,12 +28,8 @@ $(function(){
             cname: '芥子',
             color: 'CAAD5F' }
         var ran = Math.round(Math.random()*250);
-        // var uri = '/'+ ran;
-        // jsonp = $.ajax({url:uri,async:false}).success().responseJSON;
-        // if(jsonp) json = jsonp;
-        // console.log(json)
         json = jsonf[ran-1];
-        var img = '/images/title_'+json.id + '.png'
+        var img = 'http://106.14.119.104:8080/images/title_'+json.id + '.png'
         
         $('#bgWrap').animate({
             backgroundColor: '#'+json.color
@@ -62,8 +58,6 @@ $(function(){
         text: function() { return RGB; }
     });
     clipboard.on('success', function(e) {
-        // $('.info').fadeIn(1000);
-        // $('.info').fadeOut(1000);
         alert("复制成功");
         console.log(RGB)
     });

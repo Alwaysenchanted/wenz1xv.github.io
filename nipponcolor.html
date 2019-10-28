@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&amp;display=swap">
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="http://www.jq22.com/demo/clipboard.js-master201703170013/dist/clipboard.min.js"></script>
-<script src="http://106.14.119.104:8080/javascripts/nipponcolor.js"></script>
 <script src="http://106.14.119.104:8080/javascripts/animate-min.js"></script>
 <link rel="stylesheet" href="http://106.14.119.104:8080/stylesheets/nipponcolor_style.css">
 
@@ -18,4 +17,59 @@
 	<div style="display:none" class="info"><label>Has Copid to the Clipboard</label></div>
 </body>
 
+	
+<script>
+$(function(){
+    var jsonf = $.ajax({url:'/javascripts/nipponcolor.json',async:false}).responseJSON;
+    function flash(){
+        var json = { 
+            id: '111',
+            name: 'KARASHI',
+            cname: '芥子',
+            color: 'CAAD5F' }
+        var ran = Math.round(Math.random()*250);
+        // var uri = '/'+ ran;
+        // jsonp = $.ajax({url:uri,async:false}).success().responseJSON;
+        // if(jsonp) json = jsonp;
+        // console.log(json)
+        json = jsonf[ran-1];
+        var img = '/images/title_'+json.id + '.png'
+        
+        $('#bgWrap').animate({
+            backgroundColor: '#'+json.color
+          }, 1000);
+        $.when(
+            $('.nippon').fadeOut(500)
+        ).then(()=>{
+            $('#nipponImg').attr('src', img);
+            $('#nipponName').html(json.name);
+            $('#nipponRGB').html('#'+json.color);
+            $('.nippon').fadeIn(1000)
+            RGB = '#'+json.color;
+        })
+    }
+    flash()
+    $(window).resize(function(){
+        $('.nippon').css('margin',$(document.body.offsetHeight)[0]/3 + 'px auto 0 auto')
+        // $('.nippon').css('height',$(document.body.offsetHeight)[0]/3 + 'px')
+    })
+    $('.nippon').css('margin',$(document.body.offsetHeight)[0]/3 + 'px auto 0 auto')
+    $('#bgWrap').click(()=>{
+        flash()
+    });
+    var RGB = $('#nipponRGB').html();
+    var clipboard = new Clipboard('#nipponRGB', {
+        text: function() { return RGB; }
+    });
+    clipboard.on('success', function(e) {
+        // $('.info').fadeIn(1000);
+        // $('.info').fadeOut(1000);
+        alert("复制成功");
+        console.log(RGB)
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    })
+})
+</script>
 </html>

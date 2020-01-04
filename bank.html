@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="http://106.14.119.104:8080/images/1.ico">
-    <link rel="stylesheet" href="http://106.14.119.104:8080/stylesheets/wenzhub.css">
+    <link rel="stylesheet" href="http://106.14.119.104:3000/stylesheets/wenzhub.css">
 	<link rel ='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
     <title>wenz</title>
     <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
@@ -13,8 +13,11 @@
 </head>
 <body>
     <div id = 'main' class="animated fadeInDown">
-        <a href="http://106.14.119.104:3000/ylbank"  ><button class = 'push_button' style = 'background: #CC543A;margin-top:0px;'>随机刷题</button></a>
-        <a href="http://106.14.119.104:3000/bank/1"  ><button class = 'push_button' style = 'background: #CC543A;'>顺序刷题</button></a>
+        <p style="color:#FFF; margin-bottom: 5px;">这是药理选择题库</p>
+        <p style="margin-top: 0px;"><a href="http://106.14.119.104:3000/static/data.txt">源文件</a></p>
+        <a href="http://106.14.119.104:3000/ylbank"><button class="push_button" style="background: #CC543A;margin-top:0px;">随机刷题</button></a>
+        <a id='nn' href="http://106.14.119.104:3000/bank/1" onclick="get();"><button class="push_button" style="background: #CC543A;">顺序刷题</button></a>
+        <input id='num' type="text" placeholder='顺序刷题题号'>
 </body>
     <script>
         var height = $(document).height()
@@ -25,5 +28,11 @@
         else{
             $('#main').css('margin-top',height/7)
 		}
+        function get(){
+            num = $('#num').val()
+            if(num>0){
+            $('#nn').attr('href','http://106.14.119.104:3000/bank/'+ num)
+            }
+        }
     </script>
 </html>

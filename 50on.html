@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="http://106.14.119.104:8080/images/1.ico">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <title>五十音図</title>
+</head>
+<body>
+    <div class="main">
+        <div class="on">
+            <p >
+                <label id="on">始めましょう</label>
+            </p>
+            <p >
+                <label id="roma">hajimemashou</label>
+            </p>
+            <button id="nxt">次へ</button>
+        </div>
+        <div class="pro">
+            <button class="hb" id="show">ローマ字</button>
+            <button class="hb" id="pro">発音</button>
+        </div>
+    </div>
+</body>
+
+<style>
+body{
+    background: #DC9F84;
+}
+.main{
+    margin-top: 5em;
+    margin-left: 33%;
+    margin-right: 33%;
+}
+.hb{
+    float:left;
+    width: 48%;
+}
+#pro{
+    margin-left: 4%;
+}
+.pro{
+    margin-top:2em;
+}
+button{
+    font-size: 2em;
+    position:relative;
+    width:100%;
+    height: 4em;
+    color:#FFF;
+    display:block;
+    text-decoration:none;
+    margin-top:3%;
+    border-radius:5px;
+    border:solid 1px rgb(155, 58, 46);
+    background:#B54434;
+    text-align:center;
+    padding:3% 5%;
+    
+    -webkit-box-shadow: 0px 9px 0px #84261a;
+    -moz-box-shadow: 0px 9px 0px #84261a;
+    box-shadow: 0px 9px 0px #84261a;
+}
+button:active{
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    position:relative;
+    top:7px;
+}
+button:hover{
+    cursor:pointer;
+    -webkit-box-shadow: 0px 7px 0px #84261a;
+    -moz-box-shadow: 0px 7px 0px #84261a;
+    box-shadow: 0px 7px 0px #84261a;
+    position:relative;
+    top:2px;
+}
+a{
+    text-decoration:none;
+}
+p{
+font-family: 'Acme', sans-serif;
+font-size: 5em;
+text-align: center;
+color: rgb(82, 67, 61);
+}
+
+
+</style>
+<script>
+$(function(){
+    var utterThis = new window.SpeechSynthesisUtterance();
+    utterThis.text = '始めましょう';
+    utterThis.lang = 'ja-JP';
+    utterThis.rate = 0.5;
+    $('#roma').css('color',$('body').css('background-color'))
+    var plist = ["あ", "い", "う", "え", "お",
+            "か", "き", "く", "け", "こ",
+            "さ", "し", "す", "せ", "そ",
+            "た", "ち", "つ", "て", "と",
+            "な", "に", "ぬ", "ね", "の",
+            "は", "ひ", "ふ", "へ", "ほ",
+            "ま", "み", "む", "め", "も",
+            "や", "ゆ", "よ", "わ", "を",
+            "ら", "り", "る", "れ", "ろ",
+            "ん",
+            "ア", "イ", "ウ", "エ", "オ",
+            "カ", "キ", "ク", "ケ", "コ",
+            "サ", "シ", "ス", "セ", "ソ",
+            "タ", "チ", "ツ", "テ", "ト",
+            "ナ", "ニ", "ヌ", "ネ", "ノ",
+            "ハ", "ヒ", "フ", "ヘ", "ホ",
+            "マ", "ミ", "ム", "メ", "モ",
+            "ヤ", "ユ", "ヨ", "ワ", "ヲ",
+            "ラ", "リ", "ル", "レ", "ロ",
+            "ン",
+            "ガ", "ギ", "グ", "ゲ", "ゴ",
+            "ザ", "ジ", "ズ", "ゼ", "ゾ",
+            "ダ", "ド", "ヅ", "デ", "ド",
+            "バ", "ビ", "ブ", "ベ", "ボ",];
+    var rlist = ["a", "i", "u", "e", "o",
+            "ka", "ki", "ku", "ke", "ko",
+            "sa", "shi", "su", "se", "so",
+            "ta", "chi", "tsu", "te", "to",
+            "na", "ni", "nu", "ne", "no",
+            "ha", "hi", "hu", "he", "ho",
+            "ma", "mi", "mu", "me", "mo",
+            "ya", "yu", "yo", "wa", "o",
+            "ra", "ri", "ru", "re", "ro",
+            "n",
+            "ga", "gi", "gu", "ge", "go",
+            "za", "ji", "zu", "ze", "zo",
+            "da", "ji", "zu", "de", "do",
+            "ba", "bi", "bu", "be", "bo",];
+    $('#nxt').click(()=>{
+        $('#roma').css('color',$('body').css('background-color'))
+        var ran = Math.round(Math.random()*111);
+        $('#on').text(plist[ran])
+        if(ran<45){$('#roma').text(rlist[ran])}
+        else if(ran<111){$('#roma').text(rlist[ran-46])}
+    })
+    $('#pro').click(()=>{
+        utterThis.text = $('#on').text();
+        window.speechSynthesis.speak(utterThis);
+        console.log($('#on').text())
+    })
+    $('#show').click(()=>{
+        $('#roma').css('color','rgb(82, 67, 61)')
+    })
+
+})
+
+
+</script>
+</html>

@@ -1,0 +1,86 @@
+body{
+    background: #DC9F84;
+}
+#main{
+    /* margin-top: 50%; */
+    margin-left: 33%;
+    margin-right: 33%;
+}
+.push_button{
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    
+    position:relative;
+    width:100%;
+    color:#FFF;
+    display:block;
+    text-decoration:none;
+    margin-top:10%;
+    border-radius:5px;
+    border:solid 1px rgb(155, 58, 46);
+    background:#B54434;
+    text-align:center;
+    padding:3% 5%;
+    
+    -webkit-box-shadow: 0px 9px 0px #84261a;
+    -moz-box-shadow: 0px 9px 0px #84261a;
+    box-shadow: 0px 9px 0px #84261a;
+}
+.push_button:active{
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    position:relative;
+    top:7px;
+}
+.push_button:hover{
+    cursor:pointer;
+    -webkit-box-shadow: 0px 7px 0px #84261a;
+    -moz-box-shadow: 0px 7px 0px #84261a;
+    box-shadow: 0px 7px 0px #84261a;
+    position:relative;
+    top:2px;
+}
+a{
+    text-decoration:none;
+}
+p{
+font-family: 'Acme', sans-serif;
+text-align: center;
+margin-top: 5%;
+color: rgba(82, 67, 61, 0.5);
+}
+
+
+
+
+
+
+
+
+/* 触发弹窗图片的样式 */
+/* 弹窗背景 */
+#myModal {
+    display: none;
+    position: fixed;
+    z-index: 1234;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#myImg,
+#caption {
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    margin: auto;
+    display: block;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}

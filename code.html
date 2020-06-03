@@ -50,9 +50,7 @@
     }
 
     function changename() {
-        var un = window.prompt("你的名字")
-        if(un!=''){$('#name').html(un + '的通行码')}
-        else{alert('弹窗失败')}
+        $('#name').html(window.prompt("你的名字") + '的通行码')
     }
 </script>
 </head>
